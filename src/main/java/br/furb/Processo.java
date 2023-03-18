@@ -3,7 +3,6 @@ package br.furb;
 import lombok.Data;
 import lombok.NonNull;
 
-import java.time.LocalTime;
 
 @Data
 public class Processo {
@@ -31,7 +30,7 @@ public class Processo {
 
     public void utilizaRecurso() {
         this.aguardandoUtilizacao = false;
-        long tempo = LocalTime.now().toNanoOfDay() * 3 % 15;
+        long tempo = (long) (Math.random() * 15);
 
         if (tempo < 5) {
             tempo += 5;
@@ -40,7 +39,7 @@ public class Processo {
         this.utilizandoRecurso = true;
         this.tempoExecucao = tempo;
 
-        tempo = LocalTime.now().toNanoOfDay() * 4 % 25;
+        tempo = (long) (Math.random() * 25);
 
         if (tempo < 10) {
             tempo += 10;
